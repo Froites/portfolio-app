@@ -1,0 +1,241 @@
+/* src/components/MyExperience/styles.module.css */
+.experienceSection {
+  width: 100%;
+  max-width: 100%;
+  margin: 3rem 0;
+  padding: 2rem 1rem;
+  color: #ffffff;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionHeader h3 {
+  color: #8257e6;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.sectionHeader h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 2rem;
+}
+
+/* Linha vertical da timeline */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #8257e6 10%, #8257e6 90%, transparent);
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.timelineItem:last-child {
+  margin-bottom: 0;
+}
+
+.timelineDot {
+  position: absolute;
+  left: -2.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #202024;
+  border: 2px solid #8257e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8257e6;
+  z-index: 2;
+}
+
+.timelineContent {
+  background-color: #202024;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.timelineItem.expanded .timelineContent {
+  box-shadow: 0 8px 25px rgba(130, 87, 230, 0.15);
+}
+
+.timelineHeader {
+  padding: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: background-color 0.3s ease;
+}
+
+.timelineHeader:hover {
+  background-color: #29292e;
+}
+
+.timelineHeaderMain {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.role {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+}
+
+.company {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+  color: #8257e6;
+}
+
+.timelinePeriod {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #a8a8b3;
+}
+
+.calendarIcon {
+  font-size: 0.85rem;
+}
+
+.expandIcon {
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+.timelineDetails {
+  padding: 0 1.5rem 1.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  animation: fadeIn 0.3s ease;
+}
+
+.description,
+.achievements {
+  margin-bottom: 1.5rem;
+}
+
+.description h4,
+.achievements h4,
+.technologies h4 {
+  font-size: 1rem;
+  color: #8257e6;
+  margin: 1.25rem 0 0.75rem;
+}
+
+.description ul,
+.achievements ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.description li,
+.achievements li {
+  margin-bottom: 0.5rem;
+  color: #e1e1e6;
+  line-height: 1.5;
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.techTag {
+  padding: 0.35rem 0.75rem;
+  background-color: rgba(130, 87, 230, 0.1);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #c4c4cc;
+  font-size: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .timelineHeader {
+    flex-direction: column;
+  }
+  
+  .timelineDot {
+    width: 35px;
+    height: 35px;
+    left: -2.25rem;
+  }
+  
+  .timeline {
+    padding-left: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .timeline::before {
+    left: 0;
+  }
+  
+  .timelineDot {
+    width: 30px;
+    height: 30px;
+    left: -1.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .timeline {
+    padding-left: 1.25rem;
+  }
+  
+  .timelineHeader {
+    padding: 1.25rem;
+  }
+  
+  .timelineDetails {
+    padding: 0 1.25rem 1.25rem;
+  }
+}

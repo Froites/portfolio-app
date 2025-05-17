@@ -1,0 +1,275 @@
+/* src/components/ProfileCircular/styles.module.css */
+.profileContainer {
+  background-color: #121214;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+}
+
+.coverArea {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+}
+
+.profileContainer:hover .coverImage {
+  transform: scale(1.1);
+}
+
+.profileInfo {
+  position: relative;
+  padding: 0 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -50px;
+}
+
+.avatarContainer {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.avatarWrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  padding: 5px;
+  background: linear-gradient(135deg, #8257e6, #61DBFB);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid #121214;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: #ffffff;
+}
+
+.role {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #8257e6;
+  margin-top: 0;
+  margin-bottom: 1rem;
+
+  text-align: center;         /* Centraliza o texto */
+  word-wrap: break-word;      /* Quebra palavras grandes */
+  overflow-wrap: break-word;  /* Compatível com mais navegadores */
+  white-space: normal;        /* Permite quebras de linha */
+}
+
+
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  color: #c4c4cc;
+  font-size: 1rem;
+}
+
+.error {
+  color: #f75a68;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.socialLink {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #202024;
+  color: #c4c4cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 1.25rem;
+}
+
+.socialLink:hover {
+  background-color: #8257e6;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.skillsContainer {
+  padding: 1.5rem;
+  border-top: 1px solid #29292e;
+}
+
+.skillsTitle {
+  font-size: 1.1rem;
+  color: #c4c4cc;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1.5rem;
+}
+
+.skillItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.skillItem:hover {
+  transform: translateY(-5px);
+}
+
+.skillCircle {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.skillIconContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.skillIcon {
+  font-size: 1.75rem;
+  transition: transform 0.3s ease;
+}
+
+.skillItem:hover .skillIcon {
+  transform: scale(1.2);
+}
+
+.skillCircleProgress {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.skillCircleBackground {
+  fill: none;
+  stroke: #29292e;
+  stroke-width: 2.5;
+}
+
+.skillCircleFill {
+  fill: none;
+  stroke: var(--skill-color, #8257e6);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transition: stroke-dasharray 1.5s ease-in-out;
+}
+
+.skillPercentage {
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 600;
+  position: absolute;
+  bottom: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skillItem:hover .skillPercentage {
+  opacity: 1;
+}
+
+.skillName {
+  font-size: 0.85rem;
+  color: #c4c4cc;
+  text-align: center;
+}
+
+/* Animação para as barras de progresso */
+@keyframes fillProgress {
+  from {
+    stroke-dasharray: 0 100;
+  }
+  to {
+    stroke-dasharray: var(--skill-level, 0%) 100;
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 1rem;
+  }
+  
+  .skillCircle {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .skillCircleProgress {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .skillIcon {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skillsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .skillCircle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .skillCircleProgress {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .skillIcon {
+    font-size: 1.25rem;
+  }
+  
+  .avatarWrapper {
+    width: 100px;
+    height: 100px;
+  }
+}

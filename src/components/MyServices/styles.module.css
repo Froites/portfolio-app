@@ -1,0 +1,277 @@
+/* src/components/MyServices/styles.module.css - Estilos avançados */
+.servicesSection {
+  width: 100%;
+  max-width: 100%;
+  margin: 3rem 0;
+  padding: 2rem 1rem;
+  color: #ffffff;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionHeader h3 {
+  color: #8257e6;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.sectionHeader h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Filtro de categorias */
+.categoriesFilter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.categoriesFilter button {
+  background-color: #29292e;
+  color: #c4c4cc;
+  border: none;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.categoriesFilter button:hover {
+  background-color: #323238;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.categoriesFilter .activeCategory {
+  background-color: #8257e6;
+  color: #ffffff;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  /* Importante: Adicione estas propriedades */
+  grid-auto-rows: minmax(min-content, auto);
+  grid-auto-flow: dense;
+}
+
+.serviceCard {
+  background-color: #202024;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  /* Remova qualquer propriedade height fixa para permitir expansão */
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.selectedCard {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.3);
+  /* Importante: mantenha o z-index maior para sobrepor outros cards */
+  z-index: 2;
+}
+
+.serviceIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border: 2px dashed;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.serviceCard:hover .serviceIcon {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(130, 87, 230, 0.3);
+}
+
+.serviceCard h2 {
+  font-size: 1.25rem;
+  margin: 0 0 0.75rem 0;
+  color: #ffffff;
+}
+
+.serviceCard p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Expandir indicador */
+.expandIndicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.serviceCard:hover .expandIndicator {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+}
+
+.serviceDetails {
+  width: 100%;
+  margin-top: 1.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-top: 1.25rem;
+  text-align: left;
+}
+
+.serviceDetails ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.serviceDetails li {
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.technologiesList {
+  margin-top: 1.25rem;
+}
+
+.technologiesList h3 {
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techTag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.serviceCard {
+  animation: fadeIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+.serviceCard:nth-child(1) { animation-delay: 0.1s; }
+.serviceCard:nth-child(2) { animation-delay: 0.2s; }
+.serviceCard:nth-child(3) { animation-delay: 0.3s; }
+.serviceCard:nth-child(4) { animation-delay: 0.4s; }
+.serviceCard:nth-child(5) { animation-delay: 0.5s; }
+.serviceCard:nth-child(6) { animation-delay: 0.6s; }
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .sectionHeader h1 {
+    font-size: 1.75rem;
+  }
+  
+  .servicesSection {
+    padding: 1.5rem 1rem;
+  }
+  
+  .serviceCard {
+    padding: 1.5rem;
+  }
+  
+  .categoriesFilter {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .categoriesFilter {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .categoriesFilter button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .serviceCard {
+    grid-row: auto !important;
+  }
+}
