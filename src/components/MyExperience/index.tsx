@@ -62,7 +62,7 @@ const MyExperience: React.FC = () => {
       </div>
 
       <div className={styles.timeline}>
-        {experiences.map((experience, index) => (
+        {experiences.map((experience) => (
           <div 
             key={experience._id} 
             className={`${styles.timelineItem} ${expandedExperience === experience._id ? styles.expanded : ''}`}
